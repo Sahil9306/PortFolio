@@ -1,0 +1,212 @@
+/*==================== About Section ====================*/
+
+
+.about_info {
+    grid-template-columns: repeat(3, 140px);
+    gap: 0.5rem;
+    margin-bottom: var(--mb-2);
+}
+
+.about_box {
+
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+
+    border: 3px solid hsla(0, 0%, 100%, 0.3);
+    background: hsla(20, 33%, 54%, 0.084);
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 8px 1px hsl(0, 0%, 100%, 0.3);
+
+}
+
+.about_icons {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    margin-bottom: var(--mb-0-5);
+}
+
+
+.section_title {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: var(--mb-0-25);
+}
+
+.section_subtitle {
+    display: block;
+    font-size: var(--h3-font-size);
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: var(--mb-3);
+}
+
+.about_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/*==================== About Image ====================*/
+.about_img {
+    width: 350px;
+    height: 300px;
+    background: url('../../assets/home.jpg') center/cover no-repeat;
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    justify-self: center;
+}
+
+.about_data>.info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/*==================== About Data ====================*/
+.about_data {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-1);
+}
+
+.about__description {
+    font-size: var(--normal-font-size);
+    line-height: 1.6;
+    color: var(--text-color);
+    padding: 0 4rem 0 0;
+    margin-bottom: var(--mb-2-5);
+}
+
+.about_title {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+
+}
+
+.about_subtitle {
+    font-size: 0.625rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--title-color);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--title-color-dark);
+}
+
+.button__icon {
+    margin-left: 0.5rem;
+}
+
+/*==================== Info Component ====================*/
+.about_data>.info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/*==================== Responsive ====================*/
+/* 🖥 Medium screens (up to 1024px) */
+@media screen and (max-width: 1024px) {
+    .about_container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        padding-top: 3rem;
+    }
+
+    .about_img {
+        max-width: 320px;
+    }
+
+    .about__description {
+        max-width: 450px;
+        font-size: 0.95rem;
+    }
+}
+
+/* 📱 Tablets (portrait & landscape) */
+@media screen and (max-width: 768px) {
+    .about_container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding-top: 3rem;
+        gap: 1.5rem;
+    }
+
+    .about_img {
+        order: initial;
+        max-width: 280px;
+        margin-bottom: 1.5rem;
+    }
+
+    .about_data {
+        align-items: center;
+    }
+
+    .about__description {
+        font-size: 0.95rem;
+        max-width: 90%;
+    }
+
+    .button {
+        margin-top: 1rem;
+    }
+
+    .about_info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 📱 Small mobile devices */
+@media screen and (max-width: 480px) {
+    .about_container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .about_img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about__description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+
+}
+
+/* 📺 Extra large (wide monitors) */
+@media screen and (min-width: 1440px) {
+    .about_container {
+        column-gap: 3rem;
+    }
+
+    .about_img {
+        max-width: 450px;
+    }
+
+    .about__description {
+        max-width: 550px;
+        font-size: 1.05rem;
+    }
+}

@@ -1,0 +1,311 @@
+:root {
+  --accent-color-1: #3b82f6;
+  /* Primary accent */
+  --accent-color-2: #06b6d4;
+  /* Secondary accent */
+}
+
+/*=============== DESIGN PAGE ===============*/
+.design-page {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--body-color);
+  font-family: var(--body-font);
+  color: var(--text-color);
+}
+
+/*=============== HEADER ===============*/
+.design-header {
+  text-align: center;
+  margin-bottom: var(--mb-3);
+}
+
+.design-header h1 {
+  font-size: var(--big-font-size);
+  font-weight: var(--font-semi-bold);
+  background: linear-gradient(135deg, hsl(var(--hue), var(--sat), 0%), hsl(var(--hue), var(--sat), 20%));
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.design-header p {
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  margin-top: var(--mb-0-5);
+  opacity: 0.8;
+}
+
+/*=============== TIMELINE ===============*/
+.timeline {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: hsla(var(--hue), var(--sat), 30%, 0.2);
+}
+
+.timeline-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: var(--mb-3) 0;
+}
+
+/*=============== STEP SIDES ===============*/
+.timeline-step.left .timeline-content {
+  text-align: right;
+  order: 1;
+  flex: 1;
+  padding-right: 50px;
+}
+.timeline-image img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.timeline-step.left .timeline-image {
+  order: 3;
+  flex: 1;
+  padding-left: 50px;
+}
+
+.timeline-step.right .timeline-content {
+  text-align: left;
+  order: 3;
+  flex: 1;
+  padding-left: 50px;
+}
+
+.timeline-step.right .timeline-image {
+  order: 1;
+  flex: 1;
+  padding-right: 50px;
+}
+
+/*=============== CIRCLE ===============*/
+.timeline-circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, hsl(var(--hue), 90%, 60%), hsl(calc(var(--hue) + 310), 90%, 65%));
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--font-semi-bold);
+  font-size: 18px;
+  color: var(--container-color);
+  animation: glow 3s infinite;
+  box-shadow: 0 0 20px hsla(var(--hue), 90%, 60%, 0.6),
+    0 0 30px hsla(calc(var(--hue) + 310), 90%, 65%, 0.5);
+}
+
+/*=============== CONTENT ===============*/
+.timeline-content h3 {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: var(--mb-0-5);
+}
+
+.timeline-content p {
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  line-height: 1.6;
+}
+
+/*=============== IMAGE ===============*/
+.timeline-image img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px hsla(var(--hue), 90%, 60%, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.timeline-image img:hover {
+  transform: scale(1.05);
+}
+
+/*=============== ANIMATION ===============*/
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px hsla(var(--hue), 90%, 60%, 0.4),
+      0 0 20px hsla(calc(var(--hue) + 310), 90%, 65%, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 25px hsla(var(--hue), 90%, 60%, 0.8),
+      0 0 40px hsla(calc(var(--hue) + 310), 90%, 65%, 0.7);
+  }
+
+  100% {
+    box-shadow: 0 0 10px hsla(var(--hue), 90%, 60%, 0.4),
+      0 0 20px hsla(calc(var(--hue) + 310), 90%, 65%, 0.3);
+  }
+}
+
+/*=============== RESPONSIVE ===============*/
+
+/*================ TIMELINE @ 1024px ================*/
+@media screen and (max-width: 100%) {
+  .timeline {
+    width: 95%;
+    /* a bit more space from edges */
+  }
+
+  .timeline-step.left .timeline-content {
+    padding-right: 40px;
+    /* reduce spacing */
+  }
+
+  .timeline-step.left .timeline-image {
+    padding-left: 60px;
+    position: relative;
+    /* more room from edge */
+    right: -100%;
+  }
+
+
+  .timeline-step.right .timeline-content {
+    padding-left: 40px;
+  }
+
+  .timeline-step.right .timeline-image {
+    padding-right: 40px;
+
+  }
+
+  /* Optional: slightly shift timeline line */
+  .timeline::before {
+    left: 51%;
+    /* move center line slightly right */
+  }
+
+  /* ✅ Only flip the first step’s layout */
+  .timeline-step.left:first-child {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-step.left:first-child .timeline-content {
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 0;
+  }
+}
+
+
+/* Small Devices (Tablets & Large Phones) */
+@media screen and (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-step {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: var(--mb-2) 0;
+  }
+
+  .timeline-circle {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin-bottom: var(--mb-1);
+  }
+
+  .timeline-step.left .timeline-content,
+  .timeline-step.right .timeline-content,
+  .timeline-step.left .timeline-image,
+  .timeline-step.right .timeline-image {
+    text-align: left;
+    padding: 0;
+  }
+
+  .timeline-image {
+    margin-top: var(--mb-1);
+    width: 100%;
+    text-align: center;
+  }
+
+  .timeline-image img {
+    max-width: 280px;
+    width: 90%;
+  }
+}
+
+/* Extra Small Devices (Phones) */
+@media screen and (max-width: 480px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+  }
+
+  .timeline-step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: var(--mb-2) 0;
+  }
+
+  .timeline-circle {
+    position: static;
+    margin-bottom: var(--mb-1);
+    transform: none;
+  }
+
+  .timeline-step.left .timeline-content,
+  .timeline-step.right .timeline-content,
+  .timeline-step.left .timeline-image,
+  .timeline-step.right .timeline-image {
+    text-align: center;
+    padding: 0;
+  }
+
+  .timeline-image img {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .timeline-content h3 {
+    font-size: calc(var(--h2-font-size) - 0.3rem);
+  }
+
+  .timeline-content p {
+    font-size: calc(var(--small-font-size) - 0.05rem);
+  }
+}
+
+
+.timeline-step {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.timeline-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
