@@ -1,6 +1,6 @@
 import React from 'react'
 import AboutImg from '../../assets/home.jpg'
-import CV from '../../assets/Sahil Kumar _ Resume.pdf'
+import CV from '../../assets/SahilKumar-JavaFullStackcv.pdf'
 import Info from './Info'
 import './About.css'
 function About() {
